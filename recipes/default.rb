@@ -30,12 +30,12 @@ end
 git '/home/vagrant/unit.js' do
   repository 'https://github.com/unitjs/unit.js'
   revision 'master'
+  user 'vagrant'
   action :sync
 end
 
 execute 'npm install' do
   command 'npm install'
-  user 'vagrant'
   cwd '/home/vagrant/unit.js'
   only_if { ::File.exist?('/home/vagrant/unit.js') }
 end
